@@ -1,2 +1,4 @@
 fire
 skimage
+torch
+torchvision
