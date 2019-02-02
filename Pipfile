@@ -9,6 +9,10 @@ verify_ssl = true
 torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp37-cp37m-win_amd64.whl"}
 torchvision = "*"
 pillow = "*"
+responder = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
