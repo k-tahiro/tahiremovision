@@ -1,4 +1,0 @@
-fire
-skimage
-torch
-torchvision
