@@ -9,16 +9,8 @@ from torchvision import models, transforms
 
 class Detector:
     def __init__(self, input_size: int, model_file: str):
-        self._set_transform(input_size)
         self._set_model(model_file)
-
-    def _set_transform(self, input_size: int):
-        self._transform = transforms.Compose([
-            transforms.Resize(input_size),
-            transforms.CenterCrop(input_size),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        ])
+        self._set_transform(input_size)
 
     def _set_model(self, model_file: str):
         def set_parameter_requires_grad(model, feature_extracting):
@@ -34,6 +26,14 @@ class Detector:
         self._model.load_state_dict(torch.load(model_file, map_location=device))
         self._model.eval()
 
+    def _set_transform(self, input_size: int):
+        self._transform = transforms.Compose([
+            transforms.Resize(input_size),
+            transforms.CenterCrop(input_size),
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ])
+
     def predict(self, input_file: str) -> int:
         im = Image.open(input_file)
         data = torch.stack([self._transform(im)])
@@ -47,8 +47,8 @@ class Detector:
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file')
-    parser.add_argument('-i', '--input-size', type=int, default=224)
     parser.add_argument('-m', '--model-file', default='model.pth')
+    parser.add_argument('-i', '--input-size', type=int, default=224)
     return parser.parse_args()
 
 
