@@ -34,14 +34,15 @@ class Detector:
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
 
-    def predict(self, input_file: str) -> int:
+    def predict(self, input_file: str) -> (int, list):
         im = Image.open(input_file)
         data = torch.stack([self._transform(im)])
 
         outputs = self._model(data)
-        _, preds = torch.max(outputs, 1)
+        probs = nn.Softmax()(outputs)
+        _, preds = torch.max(probs, 1)
         
-        return preds.numpy()[0]
+        return preds.numpy()[0], probs.tolist()
 
 
 def parse_args():
