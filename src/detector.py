@@ -21,9 +21,15 @@ class Detector:
         device = torch.device("cpu")
         self._model = models.squeezenet1_0(pretrained=True)
         set_parameter_requires_grad(self._model, True)
-        self._model.classifier[1] = nn.Conv2d(512, 2, kernel_size=(1,1), stride=(1,1))
+        self._model.classifier[1] = nn.Conv2d(
+            512, 2,
+            kernel_size=(1, 1),
+            stride=(1, 1)
+        )
         self._model.num_classes = 2
-        self._model.load_state_dict(torch.load(model_file, map_location=device))
+        self._model.load_state_dict(
+            torch.load(model_file, map_location=device)
+        )
         self._model.eval()
 
     def _set_transform(self, input_size: int):
@@ -41,7 +47,7 @@ class Detector:
         outputs = self._model(data)
         probs = nn.Softmax()(outputs)
         _, preds = torch.max(probs, 1)
-        
+
         return preds.numpy()[0], probs.tolist()
 
 
