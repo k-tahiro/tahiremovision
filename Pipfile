@@ -10,6 +10,7 @@ torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp37-cp37m-wi
 torchvision = "*"
 pillow = "*"
 responder = "*"
+fire = "*"
 
 [requires]
 python_version = "3.7"
