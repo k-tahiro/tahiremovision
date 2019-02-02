@@ -5,7 +5,7 @@ import sys
 import fire
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from tahiremovision import command, server
+from tahiremovision import command
 
 
 class TahiremoVision:
