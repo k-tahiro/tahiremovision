@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-import argparse
-
 from PIL import Image
 import torch
 import torch.nn as nn
@@ -8,7 +5,7 @@ from torchvision import models, transforms
 
 
 class Detector:
-    def __init__(self, input_size: int, model_file: str):
+    def __init__(self, model_file: str, input_size: int):
         self._set_model(model_file)
         self._set_transform(input_size)
 
@@ -49,22 +46,3 @@ class Detector:
         _, preds = torch.max(probs, 1)
 
         return preds.numpy()[0], probs.tolist()
-
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('input_file')
-    parser.add_argument('-m', '--model-file', default='model.pth')
-    parser.add_argument('-i', '--input-size', type=int, default=224)
-    return parser.parse_args()
-
-
-def main():
-    args = parse_args()
-    detector = Detector(args.input_size, args.model_file)
-    result = detector.predict(args.input_file)
-    print(result)
-
-
-if __name__ == '__main__':
-    main()
