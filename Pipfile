@@ -4,12 +4,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-fire = "*"
 
 [packages]
-scikit-image = "*"
 torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp37-cp37m-win_amd64.whl"}
 torchvision = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
