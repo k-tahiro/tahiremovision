@@ -6,7 +6,7 @@ readonly LOG_DIR="/var/log/tahiremovision"
 readonly ADB_LOG_FILE="${LOG_DIR}/adb.log"
 readonly ERR_LOG_FILE="${LOG_DIR}/err.log"
 
-IMG_DIR="${IMG_DIR:-"/var/opt/tahiremovision"}"
+IMG_DIR="${1:-"/var/opt/tahiremovision"}"
 
 {
   adb shell touch "${DATA_DIR}/newer"

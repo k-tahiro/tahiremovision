@@ -1,0 +1,6 @@
+camera:
+  data_dir: '/var/opt/tahiremovision'
+
+model:
+  model_file: 'model/model.pth'
+  input_size: 224
