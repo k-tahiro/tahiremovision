@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp36-cp36m-win_amd64.whl"}
+torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp36-cp36m-win_amd64.whl",sys_platform = "== 'win32'"}
 
 [packages]
 torchvision = "*"
@@ -13,7 +13,7 @@ responder = "*"
 fire = "*"
 pyyaml = "*"
 onnx = "*"
-tensorflow = {version = "*",sys_platform = "!= 'win32'"}
+tensorflow = "*"
 cmake = "*"
 
 [requires]

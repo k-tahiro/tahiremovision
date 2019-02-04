@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a6b31ddafe7d8188ba05be9b993dc820a28f1acb3cc5c574db613e4862bd6f5e"
+            "sha256": "ff2e2ae74c4e26041e2085a6b821225ebd68bbc3da9860eb9ff92e30edb13c5d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -540,7 +540,6 @@
                 "sha256:faf19c69b8c0449baf13160d51f1f2b9e5c782b2ca72cfcf3c07338ab686ba46"
             ],
             "index": "pypi",
-            "markers": "sys_platform != 'win32'",
             "version": "==1.13.0rc0"
         },
         "tensorflow-estimator": {
