@@ -1,5 +1,5 @@
 camera:
-  data_dir: '/var/opt/tahiremovision'
+  data_dir: 'M:\tahiremocon'
 
 model:
   model_file: 'model/model.pth'

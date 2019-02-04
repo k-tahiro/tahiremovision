@@ -44,7 +44,12 @@ def init_api(camera: dict, model: dict):
         label = detect_func(camera_func())
         resp.media = {"status": LABELS[label]}
 
+    @api.route('/detect/{filename}')
+    def detect_file_api(req, resp, *, filename):
+        label = detect_func(filename)
+        resp.media = {"status": LABELS[label]}
+
 
 def server(camera: dict, model: dict):
     init_api(camera, model)
-    api.run()
+    api.run(address='0.0.0.0')
