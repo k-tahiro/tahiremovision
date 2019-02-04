@@ -23,7 +23,10 @@ def init_api(camera: dict, model: dict):
     detector = Detector(**model)
 
     def camera_func() -> str:
-        res = subprocess.run([camera_cmd, str(data_path)], stdout=subprocess.PIPE)
+        res = subprocess.run(
+            [camera_cmd, str(data_path)],
+            stdout=subprocess.PIPE
+        )
         return res.stdout.decode()
 
     def detect_func(filename: str) -> int:
