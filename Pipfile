@@ -12,9 +12,6 @@ pillow = "*"
 responder = "*"
 fire = "*"
 pyyaml = "*"
-onnx = "*"
-tensorflow = "*"
-cmake = "*"
 
 [requires]
 python_version = "3.6"
