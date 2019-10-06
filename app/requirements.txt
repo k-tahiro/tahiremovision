@@ -1,0 +1,6 @@
+fastapi[all]
+pillow
+
+# install built file.
+# torch
+# torchvision

@@ -4,7 +4,7 @@ import torch.nn as nn
 from torchvision import models, transforms
 
 
-class Detector:
+class Predictor:
     def __init__(self, model_file: str, input_size: int):
         self._set_model(model_file)
         self._set_transform(input_size)

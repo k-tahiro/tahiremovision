@@ -4,14 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-torch = {file = "https://download.pytorch.org/whl/cu90/torch-1.0.0-cp36-cp36m-win_amd64.whl",sys_platform = "== 'win32'"}
 
 [packages]
+torch = "*"
 torchvision = "*"
 pillow = "*"
-responder = "*"
-fire = "*"
-pyyaml = "*"
+fastapi = "*"
+python-multipart = "*"
 
 [requires]
 python_version = "3.7"
